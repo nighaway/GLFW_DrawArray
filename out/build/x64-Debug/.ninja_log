@@ -1,0 +1,8 @@
+# ninja log v5
+2	168	7534421658472349	build.ninja	d477cffd7668a330
+22	1070	7534419357989574	CMakeFiles/openglStudy.dir/glad.c.obj	8234ccbf649a412d
+1076	1155	7534419358868429	wrapper/wrapper.lib	4eb024bc78f8ef9b
+5	1071	7534419358019581	CMakeFiles/openglStudy.dir/main.cpp.obj	9f5de8df7884b9b1
+1155	1393	7534419360755320	openglStudy.exe	225d0c9388bc6add
+31	1083	7534419358079608	CMakeFiles/openglStudy.dir/wrapper/checkError.cpp.obj	3b39ab84713ff330
+38	1076	7534419358079608	wrapper/CMakeFiles/wrapper.dir/checkError.cpp.obj	c990a47183f8e11e
