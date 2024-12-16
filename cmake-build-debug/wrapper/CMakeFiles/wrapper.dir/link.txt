@@ -1,0 +1,2 @@
+"D:\Program Files\JetBrains\CLion 2023.2.2\bin\mingw\bin\ar.exe" qc libwrapper.a CMakeFiles/wrapper.dir/checkError.cpp.obj
+"D:\Program Files\JetBrains\CLion 2023.2.2\bin\mingw\bin\ranlib.exe" libwrapper.a

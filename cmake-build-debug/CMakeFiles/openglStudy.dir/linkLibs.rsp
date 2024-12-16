@@ -1,0 +1,1 @@
+  -LD:/code/C++/GLFW_Draw/SYSTEM  -LD:/code/C++/GLFW_Draw/Thirdparty/lib  -lglfw3 wrapper/libwrapper.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

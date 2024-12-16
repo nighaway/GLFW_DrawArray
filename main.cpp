@@ -1,175 +1,208 @@
 ﻿#include<iostream>
-#include<glad/glad.h>
-#include<GLFW/glfw3.h>
+#include"glframework/core.h"
 #include<string>
-#include<assert.h>
-#include"wrapper/checkError.h"
-#include"application/Application.h"
+#include"wrapper/checkerror.h"
+#include"application/application.h"
+#include"glframework/shader.h";
+#include"glframework/texture.h"
+#include"application/camera/perspectivecamera.h"
+#include"application/camera/trackballcamera.h"
+#include"application/camera/gamecameracontrol.h"
+#include"glframework/geometry.h"
 
-GLuint vao = 0,program=0;
+Geometry* geometry = nullptr;
+Texture* texture = nullptr;
+Shader* shader = nullptr;
+glm::mat4 transform(1.0);
+//glm::mat4 viewMatrix(1.0);
+//glm::mat4 orthoMatrix(1.0);
+//glm::mat4 perspectiveMatrix(1.0f);
+PerspectiveCamera* camera = nullptr;
+GameCameraControl* cameracontrol = nullptr;
 
-void frameBufferSizeCallback(GLFWwindow* window,int width,int height) {
-	std::cout << "窗体最新大小：" << width << "," << height << std::endl; 
-}
-
-void keyCallback(GLFWwindow* window,int key,int scancode,int action,int mods) {
-	std::cout << "按下了：" << key<<std::endl;
-	std::cout << "action：" << action<<std::endl;
-	std::cout << "mods：" << mods<<std::endl;
-}
 
 void Onresize(int width,int height) {
-    GL_CALL(glViewport(0,0,width,height));
-    std::cout<<"Onresize"<<std::endl;
+    std::cout << "窗体最新大小：" << width << "," << height << std::endl;
 }
 
 void Onkey(int key,int action,int mods) {
-    std::cout<<key<<std::endl;
-}
-	
-
-void preparesingleBuffer() {
-	float positions[] = {
-		-0.5f,-0.5f,0.0f,
-		0.5,-0.5f,0.0f,
-		0.0f,0.5f,0.0f
-	};
-	float colors[] = {
-		1.0f,0.0f,0.0f,
-		0.0f,1.0f,0.0f,
-		0.0f,0.0f,1.0f
-	};
-	GLuint posvbo = 0, colorvbo = 0; 
-	GL_CALL(glGenBuffers(1, &posvbo));
-	GL_CALL(glGenBuffers(1, &colorvbo));
-
-	GL_CALL(glBindBuffer(GL_ARRAY_BUFFER, posvbo));
-	GL_CALL(glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW));
-
-	GL_CALL(glBindBuffer(GL_ARRAY_BUFFER, colorvbo));
-	GL_CALL(glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW));
-
-	GLuint vao = 0;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	glBindBuffer(GL_ARRAY_BUFFER, posvbo);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, colorvbo);
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
-	glBindVertexArray(0);
+    cameracontrol->onKey(key, action, mods);
 }
 
-void prepareInterleavedBuffer() {
-	float vertices[]{
-		-0.5f,-0.5f,0.0f,1.0f,0.0f,0.0f,
-		0.5f,-0.5f,0.0f,0.0f,1.0f,0.0f,
-		0.0f,0.5f,0.0f,0.0f,0.0f,1.0f
-	};
-	GLuint vbo = 0;
-	GL_CALL(glGenBuffers(1, &vbo));
-	GL_CALL(glBindBuffer(GL_ARRAY_BUFFER, vbo));
-	GL_CALL(glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW));
-
-
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3*sizeof(float)));
-	 
-    glBindVertexArray(0);
+void Onmouse(int button, int action, int mods) {
+    double x, y;
+    app->getCursorPosition(&x, &y);
+    cameracontrol->onMouse(button, action, x, y);
 }
 
-void prepareShader()  {
-    const char* vertexShaderSource=
-            "#version 460 core\n"
-            "layout (location=0) in vec3 aPos;\n"
-            "void main()\n"
-            "{\n"
-            "  gl_Position=vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-            "}\0";
-    const char* fragmentShaderSource=
-            "#version 330 core\n"
-            "out vec4 FragColor;\n"
-            "void main()\n"
-            "{\n"
-            "  FragColor=vec4(1.0f,0.5f,0.2f,1.0f);\n"
-            "}\n\0";
-
-    GLuint vertex,fragment;
-    vertex=glCreateShader(GL_VERTEX_SHADER);
-    fragment=glCreateShader(GL_FRAGMENT_SHADER);
-
-    glShaderSource(vertex,1,&vertexShaderSource,NULL);
-    glShaderSource(fragment,1,&fragmentShaderSource,NULL);
-
-    int success=0;
-    char infoLog[1024];
-    glCompileShader(vertex);
-    glGetShaderiv(vertex,GL_COMPILE_STATUS,&success);
-    if(!success) {
-         glGetShaderInfoLog(vertex,1024,NULL,infoLog);
-         std::cout<<"Error:SHADER COMPILE ERROR --VERTEX"<<"\n"<<infoLog<<std::endl;
-    }
-
-    glCompileShader(fragment);
-    glGetShaderiv(fragment,GL_COMPILE_STATUS,&success);
-    if(!success) {
-        glGetShaderInfoLog(fragment,1024,NULL,infoLog);
-        std::cout<<"Error:SHADER COMPILE ERROR --FRAGMENT"<<"\n"<<infoLog<<std::endl;
-    }
-
-    program=glCreateProgram();
-
-    glAttachShader(program,vertex);
-    glAttachShader(program,fragment);
-
-    glLinkProgram(program);
-    glGetProgramiv(program,GL_LINK_STATUS,&success);
-    if(!success) {
-        glGetProgramInfoLog(program,1024,NULL,infoLog);
-        std::cout<<"Error:SHADER LINK ERROR "<<"\n"<<infoLog<<std::endl;
-    }
-
-    glDeleteShader(vertex);
-    glDeleteShader(fragment);
-
+void Oncursor(double xpos, double ypos) {
+    cameracontrol->onCursor(xpos, ypos);
 }
+
+void Onscroll(double offset) {
+    cameracontrol->onScroll(offset);
+}
+
+void doTransform() {
+    transform = glm::rotate(glm::mat4(1.0f),glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+}
+
+void doTranslation() {
+    transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.5,0.0,0.0));
+}
+
+void doScale() {
+    transform = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f, 0.5f, 1.0f));
+}
+
+
+
+//void prepare() {
+//	//float positions[] = {
+//	//	-0.5f,-0.5f,0.0f,
+//	//	0.5f,-0.5f,0.0f,
+//	//	0.0f,0.5f,0.0f
+//	//};
+//
+//	float positions[] = {
+//		-1.0f,-0.0f,0.0f,
+//		1.0f,0.0f,0.0f,
+//		0.0f,1.0f,0.0f
+//	};
+//	float colors[] = {
+//		1.0f,0.0f,0.0f,
+//		0.0f,1.0f,0.0f,
+//		0.0f,0.0f,1.0f
+//	};
+//
+//	float uvs[] = {
+//	0.0f, 0.0f,
+//	1.0f, 0.0f,
+//	0.5f, 1.0f,
+//	};
+//
+//
+//	unsigned int indices[] = {
+//		0, 1, 2
+//	};
+//
+//	GLuint positionvbo ,colorvbo, uvVbo;
+//
+//	glGenBuffers(1, &positionvbo);
+//	glBindBuffer(GL_ARRAY_BUFFER, positionvbo);
+//	glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
+//
+//
+//	glGenBuffers(1, &colorvbo);
+//	glBindBuffer(GL_ARRAY_BUFFER, colorvbo);
+//	glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
+//
+//	glGenBuffers(1, &uvVbo);
+//	glBindBuffer(GL_ARRAY_BUFFER, uvVbo);
+//	glBufferData(GL_ARRAY_BUFFER, sizeof(uvs), uvs, GL_STATIC_DRAW);
+//
+//
+//	GLuint ebo;
+//	glGenBuffers(1, &ebo);
+//	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+//	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+//
+//	vao = 0;
+//	glGenVertexArrays(1, &vao);
+//	glBindVertexArray(vao);
+//
+//	glBindBuffer(GL_ARRAY_BUFFER, positionvbo);
+//	glEnableVertexAttribArray(0);
+//	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, (void*)0);
+//
+//
+//
+//
+//	glBindBuffer(GL_ARRAY_BUFFER, uvVbo);
+//	glEnableVertexAttribArray(2);
+//	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, (void*)0);
+//
+//
+//	glBindVertexArray(0);
+//}
+
+void prepareVao() {
+    geometry = Geometry::creatBox(6.0f);
+    //geometry = Geometry::creatSphere(6.0f);
+}
+
+void prepareShader() {
+    shader = new Shader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
+}
+
+void prepareTexture() {
+    texture = new Texture("assets/textures/qtw.jpg", 0);
+}
+
+
+void prepareCamera() {
+    camera = new PerspectiveCamera(60.0f,
+                                   (float)app->getWidth() / (float)app->getHeight(),
+                                   0.1f,
+                                   1000.0f
+    );
+    cameracontrol = new GameCameraControl();
+    cameracontrol->setCamera(camera);
+}
+
+void prepareState() {
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+}
+
+//void prepareOrtho() {
+//	orthoMatrix = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, -2.0f,2.0f);
+//}
+//
+//void preparePerspective() {
+//	perspectiveMatrix = glm::perspective(glm::radians(60.0f), (float)app->getWidth()/(float)app->getHeight(),1.0f,1000.0f);
+//}
 
 void render() {
-    GL_CALL(glClear(GL_COLOR_BUFFER_BIT));
-    glUseProgram(program);
-    glBindVertexArray(vao);
-    glDrawArrays(GL_TRIANGLES,0,3);
+    GL_CALL(glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT));
+    shader->begin();
+    shader->setInt("sampler",0);
+    shader->setMatrix4x4("transform", transform);
+    shader->setMatrix4x4("viewMatrix", camera->getViewMatrix());
+    shader->setMatrix4x4("projectionMatrix", camera->getProjectMatrix());
+    GL_CALL(glBindVertexArray(geometry->getVao()));
+    glDrawElements(GL_TRIANGLES, geometry->getmIndicesCount(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+    shader->end();
 }
 
 int main() {
+    if (!app->init(800, 600)) {
+        return -1;
+    }
 
     app->setResizeCallback(Onresize);
     app->setKeyBoardCallback(Onkey);
-    if(!app->init(800,600)) {
-        return -1;
-    }
-	GL_CALL(glViewport(0, 0, 800, 600));
-	GL_CALL(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
+    app->setMouseCallback(Onmouse);
+    app->setCursorCallback(Oncursor);
+    app->setScrollCallback(Onscroll);
+
+
+    GL_CALL(glViewport(0,0,800,600));
+    GL_CALL(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
 
     prepareShader();
-    prepareInterleavedBuffer();
-	while (app->update()) {
+    prepareVao();
+    prepareTexture();
+    prepareCamera();
+    prepareState();
+
+    while (app->update()) {
+        cameracontrol->update();
         render();
-	}
+    }
 
     app->destroy();
-	return 0;
+    delete texture;
+    return 0;
 }

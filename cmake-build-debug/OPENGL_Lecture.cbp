@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="OPENGL_Lecture"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\wrapper\;CMake Files\application\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="openglStudy">
+				<Option output="D:/code/C++/GLFW_Draw/cmake-build-debug/openglStudy.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/code/C++/GLFW_Draw/Thirdparty/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 openglStudy"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="openglStudy/fast">
+				<Option output="D:/code/C++/GLFW_Draw/cmake-build-debug/openglStudy.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/code/C++/GLFW_Draw/Thirdparty/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 openglStudy/fast"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="wrapper">
+				<Option output="D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/libwrapper.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/code/C++/GLFW_Draw/Thirdparty/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 wrapper"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="wrapper/fast">
+				<Option output="D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/libwrapper.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/code/C++/GLFW_Draw/Thirdparty/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 wrapper/fast"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/wrapper/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="app">
+				<Option output="D:/code/C++/GLFW_Draw/cmake-build-debug/application/libapp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug/application"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/code/C++/GLFW_Draw/Thirdparty/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 app"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="app/fast">
+				<Option output="D:/code/C++/GLFW_Draw/cmake-build-debug/application/libapp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/code/C++/GLFW_Draw/cmake-build-debug/application"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/code/C++/GLFW_Draw/Thirdparty/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 app/fast"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/code/C++/GLFW_Draw/cmake-build-debug/application/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/Application.cpp">
+			<Option target="openglStudy"/>
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/Application.h">
+			<Option target="openglStudy"/>
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/camera.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/camera.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/cameracontrol.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/cameracontrol.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/gamecameracontrol.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/gamecameracontrol.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/orthocamera.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/orthocamera.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/perspectivecamera.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/perspectivecamera.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/trackballcamera.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/camera/trackballcamera.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/glad.c">
+			<Option target="openglStudy"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/main.cpp">
+			<Option target="openglStudy"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/wrapper/checkError.cpp">
+			<Option target="openglStudy"/>
+			<Option target="wrapper"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/wrapper/checkError.h">
+			<Option target="openglStudy"/>
+			<Option target="wrapper"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/wrapper/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\wrapper\"/>
+		</Unit>
+		<Unit filename="D:/code/C++/GLFW_Draw/application/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\application\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

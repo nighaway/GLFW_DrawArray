@@ -1,0 +1,2 @@
+"D:\Program Files\JetBrains\CLion 2023.2.2\bin\mingw\bin\ar.exe" qc libapp.a CMakeFiles/app.dir/Application.cpp.obj CMakeFiles/app.dir/camera/camera.cpp.obj CMakeFiles/app.dir/camera/cameracontrol.cpp.obj CMakeFiles/app.dir/camera/gamecameracontrol.cpp.obj CMakeFiles/app.dir/camera/orthocamera.cpp.obj CMakeFiles/app.dir/camera/perspectivecamera.cpp.obj CMakeFiles/app.dir/camera/trackballcamera.cpp.obj
+"D:\Program Files\JetBrains\CLion 2023.2.2\bin\mingw\bin\ranlib.exe" libapp.a
